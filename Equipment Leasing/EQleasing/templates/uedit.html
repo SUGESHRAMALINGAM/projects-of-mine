@@ -1,0 +1,70 @@
+<html>
+    {%load static%}
+    <head>
+        <title>Container Leasing</title>
+
+    </head>
+    <body>
+    <center>
+{% if updcontainer %}
+            <h2>Update Container details</h2>
+            <form method="post">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>
+                        Owner id
+                    </td>
+                    <td>
+                        {{updcontainer.Owner_id}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Owner Name
+                    </td>
+                    <td>
+                        {{updcontainer.Owner_Name}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Container Type
+                    </td>
+                    <td>
+                        {{updcontainer.Container_Type}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Container Size
+                    </td>
+                    <td>
+                        {{updcontainer.Container_Size}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Quantity
+                    </td>
+                    <td>
+                        <input type="text" name="quantity" value="{{updcontainer.Quantity}}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Container Amount
+                    </td>
+                    <td>
+                        <input type="text" name="containeramount" value="{{updcontainer.Container_Amount}}">
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <input type="submit" value="Save Changes">
+        </form>
+        {% endif %}
+    </center>
+    </body>
+</html>
