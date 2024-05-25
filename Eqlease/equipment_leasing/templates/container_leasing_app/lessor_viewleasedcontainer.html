@@ -1,0 +1,62 @@
+<html>
+    {%load static%}
+    <head>
+        <title>Container Leasing</title>
+        <link rel="stylesheet" href="{% static 'css/adminhome.css' %}">
+    </head>
+    <body>
+            <nav>
+                <label class="adminhome">Welcome Lessor</label>
+                <ul>
+                    <li>
+                        <a href="/container_leasing_app/lessor_home">home</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessor_editprofile">edit profile</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessor_addcontainer">add container</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessor_updatecontainer">update container</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessor_view_leased_container"> view leased container</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/home">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+            <h1>Leased Container List</h1>
+
+            <table class="txt-cen" border="1">
+                <thead>
+                    <tr>
+                        <th>Lessee Name</th>
+                        <th>Lessor Name</th>
+                        <th>Container Type</th>
+                        <th>Container Size</th>
+                        <th>Quantity</th>
+                        <th>Total lease Month</th>
+                        <th>Lease Amount</th>
+                        <th>Lease Date</th>
+                    </tr>
+                </thead>
+                {% for leasedcontainer in leasedcontainer %}
+                <tbody>
+                    <tr>
+                        <td>{{leasedcontainer.Lessee_Name}}</td>
+                        <td>{{leasedcontainer.Owner_Name}}</td>
+                        <td>{{leasedcontainer.Lease_Container_Type}}</td>
+                        <td>{{leasedcontainer.Lease_Container_Size}}</td>
+                        <td>{{leasedcontainer.Quantity}}</td>
+                        <td>{{leasedcontainer.Leasing_Months}}</td>
+                        <td>{{leasedcontainer.Lease_Amount}}</td>
+                        <td>{{leasedcontainer.Lease_Date}}</td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+    </body>
+</html>

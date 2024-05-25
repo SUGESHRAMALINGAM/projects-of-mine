@@ -1,0 +1,120 @@
+<html>
+    {%load static%}
+    <head>
+        <title>Container Leasing</title>
+        <link rel="stylesheet" href="{% static 'css/adminhome.css' %}">
+    </head>
+    <body>
+            <nav>
+                <label class="adminhome">Welcome Lessor</label>
+                <ul>
+                    <li>
+                        <a href="/container_leasing_app/lessor_home">home</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessor_editprofile">edit profile</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessor_addcontainer">add container</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessor_updatecontainer">update container</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessor_view_leased_container"> view leased container</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/home">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+            <h1>Container Details</h1>
+            <table class="txt-cen" border="1">
+                <tr>
+                    <th>Owner id</th>
+                    <th>Owner Name</th>
+                    <th>Container Type</th>
+                    <th>Container Size</th>
+                    <th>Container Picture</th>
+                    <th>Quantity</th>
+                    <th>Container Amount</th>
+                    <th>Action</th>
+                </tr>
+                {% for containerdetail in containerdetail %}
+                <tr>
+                    <td>{{containerdetail.Owner_id}}</td>
+                    <td>{{containerdetail.Owner_Name}}</td>
+                    <td>{{containerdetail.Container_Type}}</td>
+                    <td>{{containerdetail.Container_Size}}</td>
+                    <td>
+                        <img src="{{containerdetail.Container_Picture.url}}" alt="{{containerdetail.Container_Picture}}" width="100px" height="100px">
+                    </td>
+                    <td>{{containerdetail.Quantity}}</td>
+                    <td>{{containerdetail.Container_Amount}}</td>
+                    <td>
+                        <a href="/container_leasing_app/lessor_updatecontainer_update/{{containerdetail.id}}">update</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% if updcontainer %}
+            <h2>Update Container details</h2>
+            <form method="post">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>
+                        Owner id 
+                    </td>
+                    <td>
+                        {{updcontainer.Owner_id}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Owner Name
+                    </td>
+                    <td>
+                        {{updcontainer.Owner_Name}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Container Type
+                    </td>
+                    <td>
+                        {{updcontainer.Container_Type}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Container Size
+                    </td>
+                    <td>
+                        {{updcontainer.Container_Size}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Quantity
+                    </td>
+                    <td>
+                        <input type="text" name="quantity" value="{{updcontainer.Quantity}}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Container Amount
+                    </td>
+                    <td>
+                        <input type="text" name="containeramount" value="{{updcontainer.Container_Amount}}">
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <input type="submit" value="Save Changes">
+        </form>
+        {% endif %}
+    </body>
+</html>

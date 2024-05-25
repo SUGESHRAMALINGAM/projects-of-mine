@@ -1,0 +1,108 @@
+<html>
+    {%load static%}
+    <head>
+        <title>Container Leasing</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <h1>Lessor Register</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="lessorreg">
+                <table>
+                    <tr>
+                        <td>
+                            <label>First Name  </label>
+                        </td>
+                        <td>
+                            <input type="text" name="firstname">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Last Name  </label>
+                        </td>
+                        <td>
+                            <input type="text" name="lastname">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Email  </label>
+                        </td>
+                        <td>
+                            <input type="email" name="email">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Phone Number  </label>
+                        </td>
+                        <td>
+                            <input type="text" name="phoneno">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Country  </label>
+                        </td>
+                        <td>
+                            <select name="country">
+                                <option value="India">India</option>
+                                <option value="United States">United States</option>
+                                <option value="Japan">Japan</option>
+                                <option value="Denmark">Denmark</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Germany">Germany</option>
+                                <option value="China">China</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>State </label>
+                        </td>
+                        <td>
+                            <input type="text" name="state">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>City </label>
+                        </td>
+                        <td>
+                            <input type="text" name="city">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>UserName </label>
+                        </td>
+                        <td>
+                            <input type="text" name="username">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Password</label>
+                        </td>
+                        <td>
+                            <input type="password" name="password">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Confirm Password</label>
+                        </td>
+                        <td>
+                            <input type="password" name="confirmpassword">
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <input type="submit" value="Register">
+            </div>
+        </form>
+
+</html>

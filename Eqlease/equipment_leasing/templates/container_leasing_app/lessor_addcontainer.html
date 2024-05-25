@@ -1,0 +1,118 @@
+<html>
+    {%load static%}
+    <head>
+        <title>Container Leasing</title>
+        <link rel="stylesheet" href="{% static 'css/adminhome.css' %}">
+    </head>
+    <body>
+            <nav>
+                <label class="adminhome">Welcome Lessor</label>
+                <ul>
+                    <li>
+                        <a href="/container_leasing_app/lessor_home">home</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessor_editprofile">edit profile</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessor_addcontainer">add container</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessor_updatecontainer">update container</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessor_view_leased_container"> view leased container</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/home">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+            <h1>Add Container Details</h1>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+            <table>
+                <tr>
+                    <td>
+                        Owner id
+                    </td>
+                    <td>
+                        <input type="text" name="ownerid" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Owner Name
+                    </td>
+                    <td>
+                        <input type="text" name="ownername" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Container Type
+                    </td>
+                    <td>
+                        <select name="containertype">
+                            <option value="Dry storage sontainer">Dry storage container</option>
+                            <option value="Flat rack container">Flat rack container</option>
+                            <option value="Open top container">Open top container</option>
+                            <option value="Tunnel container">Tunnel container</option>
+                            <option value="Open side storage container">Open side storage container</option>
+                            <option value="Double doors container">Double doors container</option>
+                            <option value="Refrigerated ISO container">Refrigerated ISO container</option>
+                            <option value="Insulated or thermal container">Insulated or thermal container</option>
+                            <option value="Tanks">Tanks</option>
+                            <option value="Cargo storage roll container">Cargo storage roll container</option>
+                            <option value="Half-height container">Half-height container</option>
+                            <option value="car carriers">car carriers</option>
+                            <option value="Intermediate bulk shift container">Intermediate bulk shift container</option>
+                            <option value="Drums">Drums</option>
+                            <option value="Special purpose container">Special purpose container</option>
+                            <option value="Swap bodies">Swap bodies</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Container Size
+                    </td>
+                    <td>
+                        <select name="containersize">
+                            <option value="20'">20'</option>
+                            <option value="40'">40'</option>
+                            <option value="45'">45'</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Container Picture
+                    </td>
+                    <td>
+                        <input type="file" name="picture">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Quantity 
+                    </td>
+                    <td>
+                        <input type="text" name="quantity">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Container Amount
+                    </td>
+                    <td>
+                        <input type="text" name="containeramount">
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <input type="submit" value="Add">
+        </form>
+    </body>
+</html>

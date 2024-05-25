@@ -1,0 +1,59 @@
+<html>
+    {%load static%}
+    <head>
+        <title>Container Leasing</title>
+        <link rel="stylesheet" href="{% static 'css/adminhome.css' %}">
+    </head>
+    <body>
+            <nav>
+                <label class="adminhome">Welcome Admin</label>
+                <ul>
+                    <li>
+                        <a href="/container_leasing_app/adminhome">home</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessorpending">Lessor Pending</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessorapprove">Lessor Approve</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lesseepending">Lessee Pending</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lesseeapprove">Lessee Approve</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/home">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+            <h1>Lessor Approved List</h1>
+            <table class="txt-cen" border="1">
+                <tr>
+                    <th>Lessor id</th>
+                    <th>Lessor Name</th>
+                    <th>Container Type</th>
+                    <th>Container Size</th>
+                    <th>Picture</th>
+                    <th>Quantity</th>
+                    <th>Container Amount</th>
+                    <th>Status</th>
+                </tr>
+                {% for data in lessorapprovedata %}
+                <tr>
+                    <td>{{data.Owner_id}}</td>
+                    <td>{{data.Owner_Name}}</td>
+                    <td>{{data.Container_Type}}</td>
+                    <td>{{data.Container_Size}}</td>
+                    <td>
+                        <img src="{{data.Container_Picture.url}}" alt="{{data.Container_Picture}}" width="100px" height="100px">
+                    </td>
+                    <td>{{data.Quantity}}</td>
+                    <td>{{data.Container_Amount}}</td>
+                    <td>{{data.Status}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+    </body>
+</html>
